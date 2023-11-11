@@ -1,0 +1,34 @@
+- name: docker-playbook
+  hosts: all
+  become: true
+  connection: ssh
+  user: ansible
+  tasks:
+    - name: install docker
+      yum:
+        name: docker
+        state: present
+
+    - name: start docker
+      service:
+        name: docker
+        state: started
+
+    - name: create docker image
+      docker_image:
+        name: nginx:alpine
+        source: pull
+
+    - name: remove docker container
+      docker_container:
+        name: nginx_con
+        state: absent
+
+    - name: create docker container
+      docker_container:
+        name: nginx_con
+        image: uj5ghare/django-todo-app:latest
+        ports: "8000:8000"
+        state: started
+
+

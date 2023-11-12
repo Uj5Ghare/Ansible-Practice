@@ -4,7 +4,7 @@ This is simple Ansible project which perform following tasks......
 2. Pull image from docker Hub
 3. Remove existing docker container with same port
 4. Create docker container which contain out application Image 
-5. Start the docker container in port 5000
+5. Start the docker container in port 8000
  
 
 ## Requirements
@@ -19,7 +19,7 @@ This is simple Ansible project which perform following tasks......
   yum install ansible (Amazon Linux/fedora/CentOS)
   apt install ansible (Ubuntu/Debian)
   ```
-  IMP => You have to create "Inventory" and "ansible.cfg" file by runnig following commands 
+  `IMP` => You have to create `Inventory/host` and `ansible.cfg` file by runnig following commands 
   because above command does not create these files by default.
   ```
   mkdir /etc/ansible/
@@ -38,15 +38,14 @@ This is simple Ansible project which perform following tasks......
   cd Ansible-Project/
   ```
 
-3. Run the app [ This command will create docker container in client server node ] 
+3. Run the app    `This command will create docker container in client server node with running application in it` 
   ```
   Ansible-playbook playbook.yml
   ```
-  IMP => If you are using EC2 Instance/Azure Virtual Machine then open port 5000 in security group 
+  `IMP` => If you are using EC2 Instance/Azure Virtual Machine then open `port 8000` in security group 
 
-4. Copy Client Server`s Public IP and paste it in browser and attach port 5000
+4. Copy Client Server `Public IP` and paste it in browser and attach `port 8000`
   ```
-  http://<public_ip>:5000
+  http://<public_ip>:8000
   ```
 
- 
